@@ -6,7 +6,8 @@ namespace App\Service;
  * Class base
  * @package App\Service
  */
-class base {
+class base
+{
 
     /**
      * this base method service

@@ -4,6 +4,10 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Contacts
+ * @package App\Model
+ */
 class Contacts extends Model
 {
     /**
@@ -11,6 +15,5 @@ class Contacts extends Model
      *
      * @var string
      */
-
     protected $table = 'contacts';
 }

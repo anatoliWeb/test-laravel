@@ -112,7 +112,7 @@ class Contents extends base
     {
         $Contacts = ModelContacts::find($id);
 
-        if(is_null($Contacts)){
+        if (is_null($Contacts)) {
             return redirect(route('contacts'));
         }
 
