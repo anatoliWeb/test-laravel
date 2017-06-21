@@ -4,20 +4,23 @@ namespace App\Service;
 use App\Model\Contacts as ModelContacts;
 use Zoho\CRM\Entities\Contact as ZohoContact;
 use Zoho\CRM\ZohoClient;
-
+use Illuminate\Http\Request;
 /**
  * Class Contents
  * @package App\Service
  */
-class Contents extends base{
+class Contents extends base
+{
 
     /**
      * method create new row local and Zoho
      *
      * @param Request $request
+     * @return bool
      * @throws \Exception
      */
-    public function Create(Request $request){
+    public function Create(Request $request)
+    {
 
         // add validation
 
@@ -51,6 +54,8 @@ class Contents extends base{
         $response = $ZohoClient->insertRecords($validXML, ['wfTrigger' => 'true']);
 
         // add check response
+
+        return true;
     }
 
     /**
@@ -58,9 +63,11 @@ class Contents extends base{
      *
      * @param Request $request
      * @param int $id
-     * @throws \Exceptio
+     * @return bool
+     * @throws \Exception
      */
-    public function Update(Request $request, $id = 0){
+    public function Update(Request $request, $id = 0)
+    {
         // add validation
 
         $Contacts = ModelContacts::find($id);
@@ -91,12 +98,15 @@ class Contents extends base{
         $response = $ZohoClient->updateRecords($Contacts->zoho_id ,$validXML, ['wfTrigger' => 'true']);
 
         // add check response
+
+        return true;
     }
 
     /**
      * method delete row local and Zoho
      *
      * @param $id
+     * @return bool
      */
     public function Delete($id)
     {
@@ -120,5 +130,7 @@ class Contents extends base{
 
         $Contacts = ModelContacts::find($id);
         $Contacts->delete();
+
+        return true;
     }
 }

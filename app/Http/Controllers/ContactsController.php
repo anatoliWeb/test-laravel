@@ -13,7 +13,8 @@ class ContactsController extends Controller
      */
     protected $service;
 
-    public function __construct(){
+    public function __construct()
+    {
         // init service (better add this proces to base controller)
         $this->service = new ServiceContacts();
     }
